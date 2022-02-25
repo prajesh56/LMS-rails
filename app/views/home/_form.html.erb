@@ -1,0 +1,16 @@
+<%= form_with url: sign_in_path do |form|%>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.submit "Sign in" %>
+  </div>
+<%end%>
+<div>
+	<%= flash[:notice] %>
+</div>

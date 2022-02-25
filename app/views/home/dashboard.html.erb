@@ -1,0 +1,39 @@
+<h1>logged in</h1>
+<div>
+	<%= flash[:notice] %>
+</div>
+<div>
+	<% if @user %>
+		<%= @user.name%>
+	<% end %>
+</div>
+<%if @employees%>
+	<div>
+	<table>
+		<tr>
+		<td>Name</td>
+		<td>Address</td>
+		<td>Contact</td>
+		<td>Role</td>
+		<td>Email</td>
+		<tr>
+		<%@employees.each do|a|%>
+			<tr>
+				<td><%= a.name%></td>
+				<td><%= a.address%></td>
+				<td><%= a.contact%></td>
+				<td>
+					<% if a.role == false%>
+						<%= "Admin"%>
+					<% else %>
+						<%= "Employee"%>
+					<% end %>
+				</td>
+				<td><%= a.email%></td>
+			</tr><br>
+		<% end %>
+	</table>
+	</div>
+<% end %>
+
+<%= button_to "logout", logout_path, method: :delete %>
