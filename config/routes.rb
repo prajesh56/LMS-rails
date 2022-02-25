@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  resource :attendences
-  resource :employees
-  resource :leaves
-  resource :home
+  resources :'attendences'
+  resources :'employees'
+  resources :'leaves'
+  resources :'home'
 
   get "/", to: "home#index"
   post "sign_in", to: "home#create"

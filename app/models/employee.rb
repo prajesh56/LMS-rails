@@ -1,4 +1,4 @@
 class Employee < ApplicationRecord
-    has_many :leaves, dependent: :destroy
-    has_many :attendences, dependent: :destroy
+    has_many :leave, dependent: :delete_all
+    has_many :attendence, dependent: :delete_all
 end
