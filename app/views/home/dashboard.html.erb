@@ -22,18 +22,16 @@
 				<td><%= a.name%></td>
 				<td><%= a.address%></td>
 				<td><%= a.contact%></td>
-				<td>
-					<% if a.role == false%>
-						<%= "Admin"%>
-					<% else %>
-						<%= "Employee"%>
-					<% end %>
-				</td>
+				<td><%= a.role%></td>
 				<td><%= a.email%></td>
+				<td></td>
+				<td></td>
 			</tr><br>
 		<% end %>
 	</table>
 	</div>
 <% end %>
-
+<%if @user.role == 'admin'%>
+<%= link_to "Create New Employee", new_employees_path%>
+<% end %>
 <%= button_to "logout", logout_path, method: :delete %>

@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_23_140732) do
     t.string "address", null: false
     t.date "start_date"
     t.string "contact", null: false
-    t.boolean "role", null: false
+    t.string "role", null: false
     t.string "email", null: false
     t.string "password", null: false
     t.datetime "created_at", null: false

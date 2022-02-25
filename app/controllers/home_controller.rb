@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 	def dashboard
 		if session[:employee_id]
 			@user = Employee.find(session[:employee_id])
-			if @user.role == false
+			if @user.role == 'admin'
 				@employees = Employee.where.not(id: @user.id)
 			end
 		end
