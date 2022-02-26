@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_26_134534) do
     t.date "date_from", null: false
     t.date "date_to", null: false
     t.text "description", null: false
-    t.boolean "status"
+    t.string "status"
     t.string "approval_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

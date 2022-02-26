@@ -1,18 +1,36 @@
-<%= form_with url: leaverecords_path do |form|%>
-  <div>
-    <%= hidden_field_tag 'status', 'false'  %>
-    <%= hidden_field_tag 'employee_id', session[:employee_id] %>
+<%= form_with model: leaverecords do |form|%>
+  <%= form.text_field :employee_id, value: session[:employee_id], :hidden => true %>
+	<div>
     <%= form.label :date_from %>
     <%= form.date_field :date_from %>
   </div>
+
   <div>
     <%= form.label :date_to %>
     <%= form.date_field :date_to %>
   </div>
+
   <div>
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
+	<!--Status-->
+	<div>
+		<%binding.pry%>
+		<%if session[:employee_role] == 'admin' %>
+		
+			<%= form.label :status %>
+			<%= form.select :status, [["Pending", "Pending"], ["Accepted", "Accepted"], ["Rejected", "Rejected"]] %>
+		<% else %>
+			<%= form.label :status %>
+			<%= form.select :status, [["Pending", "Pending"]] %>
+		<% end %>
+	</div>
+		<!--approval by-->
+	<%if session[:employee_role] == 'admin'%>
+		<%= form.text_field :approval_by, value: session[:employee_name], :hidden => true %>
+	
+	<% end %>
   <div>
     <%= form.submit %>
   </div>

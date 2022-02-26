@@ -1,6 +1,29 @@
 class LeaverecordsController < ApplicationController
-  def new
+  def index
+		@leaverecords = Leaverecord.all
+	end
+
+	def new
 		@leaverecords = Leaverecord.new
+		#@user = Employee.find(session[:employee_id])
+	end
+
+
+	def edit
+
+		@leaverecords = Leaverecord.find(params[:id])
+		
+	end
+
+	def update
+		
+		@leaverecords = Leaverecord.find(params[:id])
+	
+    if @leaverecords.update(leaverecord_params)
+      redirect_to leaverecords_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
 	end
 
 	def create
@@ -14,7 +37,11 @@ class LeaverecordsController < ApplicationController
 
 	private
 	def leaverecord_params
-		binding.pry
-		params.permit(:date_from, :date_to, :description, :status, :employee_id, :approval_by)
+		if session[:employee_role]== 'admin'
+			params.require(:leaverecord).permit(:id, :date_from, :date_to, :description, :employee_id, :status, :approval_by)
+		else
+			params.require(:leaverecord).permit(:id, :date_from, :date_to, :description, :employee_id, :status)
+		end
 	end
+	
 end

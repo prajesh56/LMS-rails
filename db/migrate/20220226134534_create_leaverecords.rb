@@ -5,7 +5,7 @@ class CreateLeaverecords < ActiveRecord::Migration[7.0]
       t.date :date_from, null: false
       t.date :date_to, null: false
       t.text :description, null: false
-      t.boolean :status
+      t.string :status
       t.string :approval_by
       t.timestamps
     end
