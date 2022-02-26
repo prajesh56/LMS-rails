@@ -5,21 +5,15 @@ class LeaverecordsController < ApplicationController
 
 	def new
 		@leaverecords = Leaverecord.new
-		#@user = Employee.find(session[:employee_id])
 	end
 
-
 	def edit
-
 		@leaverecords = Leaverecord.find(params[:id])
-		
 	end
 
 	def update
-		
 		@leaverecords = Leaverecord.find(params[:id])
-	
-    if @leaverecords.update(leaverecord_params)
+	  if @leaverecords.update(leaverecord_params)
       redirect_to leaverecords_path
     else
       render :edit, status: :unprocessable_entity

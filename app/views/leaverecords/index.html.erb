@@ -17,6 +17,7 @@
 				<td><%= leaverecords.status %></td>
 				<td><%= leaverecords.approval_by%></td>
 				<td><%= link_to "Edit", edit_leaverecord_path(leaverecords)%></td>
-			</tr><br>
+			</tr>
 		<% end %>
 </table>
+<%= link_to "Back to home", dashboard_path%>

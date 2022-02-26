@@ -7,6 +7,7 @@ class HomeController < ApplicationController
 			end
 		end
 	end
+	
 	def create
 		@employee = Employee.find_by(email: params[:email])
 		if @employee.present? && @employee.password == params[:password]
