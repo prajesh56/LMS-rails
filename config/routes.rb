@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "home#index"
   resources :'attendences'
   resources :'employees'
-  resources :'leaves'
+  resources :'leaverecords'
   resources :'home'
 
   get "/", to: "home#index"

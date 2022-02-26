@@ -1,6 +1,6 @@
-class CreateLeaves < ActiveRecord::Migration[7.0]
+class CreateLeaverecords < ActiveRecord::Migration[7.0]
   def change
-    create_table :leaves do |t|
+    create_table :leaverecords do |t|
       t.belongs_to :employee
       t.date :date_from, null: false
       t.date :date_to, null: false

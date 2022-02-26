@@ -1,2 +1,0 @@
-class LeavesController < ApplicationController
-end

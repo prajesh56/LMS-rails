@@ -1,0 +1,12 @@
+<h2>New Leave request</h2>
+<div>
+  <%= render "form", leaverecords: @leaverecords%>  
+</div>
+
+<div>
+<%= link_to "Back to Dashboard", dashboard_path%>
+</div>
+
+<div>
+	<%= flash[:notice] %>
+</div>

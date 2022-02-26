@@ -1,6 +1,6 @@
 require "test_helper"
 
-class LeaveTest < ActiveSupport::TestCase
+class LeaverecordsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

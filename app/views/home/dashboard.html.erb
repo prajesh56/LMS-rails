@@ -34,4 +34,5 @@
 <%if @user.role == 'admin'%>
 <%= link_to "Create New Employee", new_employee_path%>
 <% end %>
+<%= link_to "New Leave request", new_leaverecord_path%>
 <%= button_to "logout", logout_path, method: :delete %>

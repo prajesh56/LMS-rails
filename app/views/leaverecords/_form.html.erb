@@ -1,0 +1,22 @@
+<%= form_with url: leaverecords_path do |form|%>
+  <div>
+    <%= hidden_field_tag 'status', 'false'  %>
+    <%= hidden_field_tag 'employee_id', session[:employee_id] %>
+    <%= form.label :date_from %>
+    <%= form.date_field :date_from %>
+  </div>
+  <div>
+    <%= form.label :date_to %>
+    <%= form.date_field :date_to %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<%end%>
+<div>
+	<%= flash[:notice] %>
+</div>
