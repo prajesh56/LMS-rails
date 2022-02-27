@@ -8,7 +8,7 @@ class Employee < ApplicationRecord
   validates :role, presence: true
   validates :email, presence: true, uniqueness: true
   validates :start_date, presence: true
-  validate :startdate_valid
+  validate :startdate_valid, on: :create
   validates :password, presence:true, length: { minimum: 8 }
 
   def startdate_valid
