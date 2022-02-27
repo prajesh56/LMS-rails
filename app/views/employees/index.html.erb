@@ -6,6 +6,7 @@
 		<td>Name</td>
 		<td>Address</td>
 		<td>Contact</td>
+        <td>Company Join Date</td>
 		<td>Role</td>
 		<td>Email</td>
 		<tr>
@@ -14,9 +15,9 @@
 				<td><%= employees.name%></td>
 				<td><%= employees.address%></td>
 				<td><%= employees.contact%></td>
+                <td><%= employees.start_date%></td>
 				<td><%= employees.role%></td>
 				<td><%= employees.email%></td>
-				<!--<td><%= link_to "Edit", edit_employee_path(employees)%></td>-->
 				<td><%= link_to "Delete", employees, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
 			</tr><br>
 		<% end %>
