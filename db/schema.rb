@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_26_134534) do
 
   create_table "attendences", force: :cascade do |t|
     t.bigint "employee_id"
+    t.date "date", null: false
     t.time "check_in"
     t.time "check_out"
     t.time "duration"

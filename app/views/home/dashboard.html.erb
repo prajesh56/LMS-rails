@@ -16,4 +16,8 @@
 
 <%= link_to "New Leave request", new_leaverecord_path%>
 <%= link_to "My Leave request", leaverecord_path(@user) %>
+<%= link_to "My Attendence log", attendence_path(@user)%>
 <%= button_to "logout", logout_path, method: :delete %>
+
+<%= button_to "CHECK IN", attendences_path, method: :post %>
+<%= button_to "CHECK OUT", attendence_path(@user), method: :patch%>

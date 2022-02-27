@@ -1,0 +1,20 @@
+<h2>My attendence log</h2>
+<% if !@attendences.empty? %>
+<table>
+	<tr>
+		<td>Date</td>
+		<td>Check In</td>
+		<td>Check Out</td>
+		<td>Duration</td>
+	</tr>
+  <% @attendences.each do |attendences| %>
+  	<tr>
+		<td><%= attendences.date %></td>
+		<td><%= attendences.check_in %></td>
+  	<td><%= attendences.check_out %></td>
+		<td><%= attendences.duration %></td>
+		</tr>
+  <% end %>
+</table>
+<% end %>
+<%= link_to "Back to Dashboard", dashboard_path%>
