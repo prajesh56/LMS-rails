@@ -30,7 +30,7 @@ class LeaverecordsController < ApplicationController
 		if @leaverecords.save
 			redirect_to dashboard_path, notice: "New Leave request created successfully" 
 		else
-			render :new
+			render :new, status: :unprocessable_entity
 		end
 	end
 

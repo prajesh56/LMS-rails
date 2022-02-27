@@ -18,10 +18,10 @@
 	<div>
 		<%if session[:employee_role] == 'admin' %>
 			<%= form.label :status %>
-			<%= form.select :status, [["Pending", "Pending"], ["Accepted", "Accepted"], ["Rejected", "Rejected"]] %>
+			<%= form.select :status, [["Approval Pending", "Approval Pending"], ["Accepted", "Accepted"], ["Rejected", "Rejected"]] %>
 		<% else %>
 			<%= form.label :status %>
-			<%= form.select :status, [["Pending", "Pending"]] %>
+			<%= form.select :status, [["Approval Pending", "Approval Pending"]] %>
 		<% end %>
 	</div>
 	
@@ -37,3 +37,10 @@
 <div>
 	<%= flash[:notice] %>
 </div>
+<% if leaverecords.errors.any? %>
+  <ul>
+    <% leaverecords.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
