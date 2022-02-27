@@ -44,3 +44,11 @@
     <%= form.submit %>
   </div>
 <%end%>
+  
+  <% if employees.errors.any? %>
+    <ul>
+      <% employees.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>

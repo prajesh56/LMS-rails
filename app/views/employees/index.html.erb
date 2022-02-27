@@ -1,5 +1,5 @@
 <h2>Employees list</h2>
-<%if @employees%>
+<% if !@employees.empty? %>
 	<div>
 	<table>
 		<tr>
@@ -19,7 +19,7 @@
 				<td><%= employees.role%></td>
 				<td><%= employees.email%></td>
 				<td><%= link_to "Delete", employees, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
-			</tr><br>
+			</tr>
 		<% end %>
 	</table>
 	</div>

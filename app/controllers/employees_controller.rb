@@ -29,6 +29,8 @@ class EmployeesController < ApplicationController
     @employees = Employee.new(employee_params)
 		if @employees.save
 			redirect_to dashboard_path, notice: "Employee created successfully" 
+		else
+			render :new, status: :unprocessable_entity
 		end
   end
 

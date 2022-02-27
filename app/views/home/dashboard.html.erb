@@ -1,11 +1,10 @@
+<% if @user %>
 <h1>logged in</h1>
 <div>
 	<%= flash[:notice] %>
 </div>
 <div>
-	<% if @user %>
-		<%= link_to @user.name, employee_path(@user) %>
-	<% end %>
+	<%= link_to @user.name, employee_path(@user) %>
 </div>
 
 <%if @user.role == 'admin'%>
@@ -21,3 +20,5 @@
 
 <%= button_to "CHECK IN", attendences_path, method: :post %>
 <%= button_to "CHECK OUT", attendence_path(@user), method: :patch%>
+
+<% end %>
