@@ -16,7 +16,7 @@
 				<td><%= employees.contact%></td>
 				<td><%= employees.role%></td>
 				<td><%= employees.email%></td>
-				<td><%= link_to "Edit", edit_employee_path(employees)%></td>
+				<!--<td><%= link_to "Edit", edit_employee_path(employees)%></td>-->
 				<td><%= link_to "Delete", employees, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
 			</tr><br>
 		<% end %>

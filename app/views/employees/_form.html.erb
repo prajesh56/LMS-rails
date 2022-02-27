@@ -1,4 +1,5 @@
 <%= form_with model: employees do |form|%>
+  <% if session[:employee_role] == 'admin'%>
   <div>
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -7,15 +8,17 @@
     <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
+  <% end %>
   <div>
     <%= form.label :contact %>
     <%= form.text_field :contact %>
   </div>
-  <div>
-    <%= form.label :start_date %>
-    <%= form.date_field :start_date %>
-  </div>
   <% if session[:employee_role] == 'admin'%>
+    <div>
+      <%= form.label :start_date %>
+      <%= form.date_field :start_date %>
+    </div>
+  
     <div>
 	  	<%= form.radio_button :role, "admin" %>
 	  	<%= form.label :role, "Admin" %>
@@ -35,6 +38,6 @@
   </div>
   
   <div>
-    <%= form.submit "Create_employee" %>
+    <%= form.submit %>
   </div>
 <%end%>
