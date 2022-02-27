@@ -10,10 +10,15 @@ class Employee < ApplicationRecord
   validates :start_date, presence: true
   validate :startdate_valid, on: :create
   validates :password, presence:true, length: { minimum: 8 }
-
+  validate :joindate_changed?, on: :update
   def startdate_valid
     if start_date.present? && start_date < Date.today
   	  errors.add(:start_date,"is not valid")
   	end
+  end
+  def joindate_changed?
+    if start_date_changed? && self.persisted?
+      errors.add(:start_date,"cannot be changed")
+    end
   end
 end

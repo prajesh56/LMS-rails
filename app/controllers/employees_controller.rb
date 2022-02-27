@@ -25,8 +25,7 @@ class EmployeesController < ApplicationController
   end
 
 	def create
-		#binding.pry
-    @employees = Employee.new(employee_params)
+	 	@employees = Employee.new(employee_params)
 		if @employees.save
 			redirect_to dashboard_path, notice: "Employee created successfully" 
 		else
@@ -44,4 +43,5 @@ class EmployeesController < ApplicationController
 	def employee_params
 		params.require(:employee).permit(:id, :name, :address, :contact, :start_date, :role, :email, :password)
 	end
+	
 end
