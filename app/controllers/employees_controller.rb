@@ -3,6 +3,10 @@ class EmployeesController < ApplicationController
 		@employees = Employee.where.not(id: session[:employee_id])	
 	end
 
+	def show
+		@employees = Employee.find(params[:id])	
+	end
+
 	def new
 		@employees = Employee.new
 	end

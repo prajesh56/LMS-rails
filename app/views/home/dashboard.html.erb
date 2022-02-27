@@ -4,7 +4,7 @@
 </div>
 <div>
 	<% if @user %>
-		<%= @user.name%>
+		<%= link_to @user.name, employee_path(@user) %>
 	<% end %>
 </div>
 

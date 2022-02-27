@@ -15,12 +15,14 @@
     <%= form.label :start_date %>
     <%= form.date_field :start_date %>
   </div>
-  <div>
-		<%= form.radio_button :role, "admin" %>
-		<%= form.label :role, "Admin" %>
-		<%= form.radio_button :role, "employee" %>
-		<%= form.label :role, "Employee" %>
-  </div>
+  <% if session[:employee_role] == 'admin'%>
+    <div>
+	  	<%= form.radio_button :role, "admin" %>
+	  	<%= form.label :role, "Admin" %>
+	  	<%= form.radio_button :role, "employee" %>
+	  	<%= form.label :role, "Employee" %>
+    </div>
+  <% end %>
   
   <div>
     <%= form.label :email %>
