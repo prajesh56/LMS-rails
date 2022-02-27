@@ -7,34 +7,13 @@
 		<%= @user.name%>
 	<% end %>
 </div>
-<%if @employees%>
-	<div>
-	<table>
-		<tr>
-		<td>Name</td>
-		<td>Address</td>
-		<td>Contact</td>
-		<td>Role</td>
-		<td>Email</td>
-		<tr>
-		<%@employees.each do|employees|%>
-			<tr>
-				<td><%= employees.name%></td>
-				<td><%= employees.address%></td>
-				<td><%= employees.contact%></td>
-				<td><%= employees.role%></td>
-				<td><%= employees.email%></td>
-				<td><%= link_to "Edit", edit_employee_path(employees)%></td>
-				<td><%= link_to "Delete", employees, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
-			</tr><br>
-		<% end %>
-	</table>
-	</div>
-<% end %>
+
 <%if @user.role == 'admin'%>
+	<%= link_to "Employee List", employees_path %>
 	<%= link_to "Create New Employee", new_employee_path%>
 	<%= link_to "Leave requests", leaverecords_path%>
 <% end %>
 
 <%= link_to "New Leave request", new_leaverecord_path%>
+
 <%= button_to "logout", logout_path, method: :delete %>

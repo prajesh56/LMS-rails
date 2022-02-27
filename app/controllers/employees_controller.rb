@@ -1,5 +1,9 @@
 class EmployeesController < ApplicationController
-  def new
+  def index
+		@employees = Employee.where.not(id: session[:employee_id])	
+	end
+
+	def new
 		@employees = Employee.new
 	end
 
