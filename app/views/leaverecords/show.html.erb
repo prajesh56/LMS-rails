@@ -1,0 +1,26 @@
+<h2>My Leave Requests</h2>
+
+<%if !@leaverecords.empty? %>
+	<table>
+		<tr>
+			<td>Date From</td>
+			<td>Date To</td>
+			<td>Description</td>
+			<td>Status</td>
+			<td>Approval by</td>
+		</tr>
+    <% @leaverecords.each do |leaverecords|%>
+			<tr>
+				<td><%= leaverecords.date_from%></td>
+				<td><%= leaverecords.date_to%></td>
+				<td><%= leaverecords.description%></td>
+				<td><%= leaverecords.status %></td>
+				<td><%= leaverecords.approval_by%></td>
+    	  <% if leaverecords.status == 'Pending'%>
+					<td><%= link_to "Delete", leaverecords, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
+    	  <% end %>
+    	</tr>
+    <% end %>
+	</table>
+<% end %>
+<%= link_to "Back to home", dashboard_path%>

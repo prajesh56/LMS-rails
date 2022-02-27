@@ -15,5 +15,5 @@
 <% end %>
 
 <%= link_to "New Leave request", new_leaverecord_path%>
-
+<%= link_to "My Leave request", leaverecord_path(@user) %>
 <%= button_to "logout", logout_path, method: :delete %>

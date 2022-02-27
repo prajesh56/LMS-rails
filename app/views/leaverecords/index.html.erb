@@ -7,7 +7,7 @@
 		<td>Description</td>
 		<td>Status</td>
 		<td>Approval by</td>
-		<tr>
+		</tr>
 		<% @leaverecords.each do |leaverecords| %>
 			<tr>
 				<td><%= leaverecords.employee_id%></td>
@@ -16,7 +16,9 @@
 				<td><%= leaverecords.description%></td>
 				<td><%= leaverecords.status %></td>
 				<td><%= leaverecords.approval_by%></td>
+				<% if leaverecords.status == 'Pending'%>
 				<td><%= link_to "Edit", edit_leaverecord_path(leaverecords)%></td>
+				<% end %>
 			</tr>
 		<% end %>
 </table>

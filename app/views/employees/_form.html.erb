@@ -1,18 +1,21 @@
 <%= form_with model: employees do |form|%>
   <% if session[:employee_role] == 'admin'%>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :address %>
+      <%= form.text_field :address %>
+    </div>
   <% end %>
+
   <div>
     <%= form.label :contact %>
     <%= form.text_field :contact %>
   </div>
+  
   <% if session[:employee_role] == 'admin'%>
     <div>
       <%= form.label :start_date %>

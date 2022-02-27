@@ -16,9 +16,7 @@
   </div>
 	<!--Status-->
 	<div>
-		
 		<%if session[:employee_role] == 'admin' %>
-		
 			<%= form.label :status %>
 			<%= form.select :status, [["Pending", "Pending"], ["Accepted", "Accepted"], ["Rejected", "Rejected"]] %>
 		<% else %>
@@ -26,12 +24,13 @@
 			<%= form.select :status, [["Pending", "Pending"]] %>
 		<% end %>
 	</div>
-		<!--approval by-->
+	
+	<!--approval by-->
 	<%if session[:employee_role] == 'admin'%>
 		<%= form.text_field :approval_by, value: session[:employee_name], :hidden => true %>
-	
 	<% end %>
-  <div>
+  
+	<div>
     <%= form.submit %>
   </div>
 <%end%>
