@@ -1,14 +1,22 @@
 <%= form_with url: sign_in_path do |form|%>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
+  <div class = "form_line">
+    <div>
+      <%= form.label :email, class: 'form_label' %>
+    </div>
+    <div>
+      <%= form.email_field :email, class: 'form_field' %>
+    </div>
   </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+  <div class = "form_line">
+    <div>
+      <%= form.label :password, class: 'form_label' %>
+    </div>
+    <div>
+      <%= form.password_field :password, class: 'form_field'%>
+    </div>
   </div>
-  <div>
-    <%= form.submit "Sign in" %>
+  <div class = "form_line">
+    <%= form.submit "Sign in", class:'btn primary'%>
   </div>
 <%end%>
 <div>

@@ -1,24 +1,18 @@
+<div class="container">
 <% if @user %>
-<h1>logged in</h1>
+<%= render "header"%>
+
+<%= render "nav"%>
 <div>
 	<%= flash[:notice] %>
 </div>
-<div>
-	<%= link_to @user.name, employee_path(@user) %>
+<div class="attendence">
+	<div>
+		<%= button_to "CHECK IN", attendences_path, method: :post, class:'btn primary' %>
+	</div>
+	<div>
+		<%= button_to "CHECK OUT", attendence_path(@user), method: :patch, class:'btn primary'%>
+	</div>
 </div>
-
-<%if @user.role == 'admin'%>
-	<%= link_to "Employee List", employees_path %>
-	<%= link_to "Create New Employee", new_employee_path%>
-	<%= link_to "Leave requests", leaverecords_path%>
 <% end %>
-
-<%= link_to "New Leave request", new_leaverecord_path%>
-<%= link_to "My Leave request", leaverecord_path(@user) %>
-<%= link_to "My Attendence log", attendence_path(@user)%>
-<%= button_to "logout", logout_path, method: :delete %>
-
-<%= button_to "CHECK IN", attendences_path, method: :post %>
-<%= button_to "CHECK OUT", attendence_path(@user), method: :patch%>
-
-<% end %>
+</div>

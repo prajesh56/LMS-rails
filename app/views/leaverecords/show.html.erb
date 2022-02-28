@@ -1,3 +1,4 @@
+<div class="container">
 <h2>My Leave Requests</h2>
 
 <%if !@leaverecords.empty? %>
@@ -14,7 +15,7 @@
 				<td><%= leaverecords.date_to%></td>
 				<td><%= leaverecords.description%></td>
 				<td><%= leaverecords.status %></td>
-				<% if leaverecords.status == 'Pending'%>
+				<% if leaverecords.status == 'Approval Pending'%>
 					<td><%= link_to "Delete", leaverecords, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
     	  <% end %>
     	</tr>
@@ -22,3 +23,4 @@
 	</table>
 <% end %>
 <%= link_to "Back to home", dashboard_path%>
+</div>

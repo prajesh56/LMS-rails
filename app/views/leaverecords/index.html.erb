@@ -1,3 +1,4 @@
+<div class="container">
 <h2>Leave requests</h2>
 <table>
 		<tr>
@@ -16,10 +17,11 @@
 				<td><%= leaverecords.description%></td>
 				<td><%= leaverecords.status %></td>
 				<td><%= leaverecords.approval_by%></td>
-				<% if leaverecords.status == 'Pending'%>
+				<% if leaverecords.status == 'Approval Pending'%>
 				<td><%= link_to "Edit", edit_leaverecord_path(leaverecords)%></td>
 				<% end %>
 			</tr>
 		<% end %>
 </table>
 <%= link_to "Back to home", dashboard_path%>
+</div>
