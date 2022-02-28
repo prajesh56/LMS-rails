@@ -15,7 +15,12 @@
   </head>
 
   <body>
-   
+  <div class = "container">
+    <%= render "home/header"%>
+    <% if @user %>
+    <%= render "home/nav"%>
+    <%end%>
     <%= yield %>
   </body>
+  </div>
 </html>
