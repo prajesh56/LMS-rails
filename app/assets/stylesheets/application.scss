@@ -78,12 +78,14 @@ body{
 	background-color: $color1;
 	border: 2px solid $color2;
 	border-radius: 1em;
+
 	&:hover{
 		background-color: $color3;
 	}
+
 }
+
 .nav-link{
-	
 	text-decoration: none;
 	color: $color2;
 	transition: all .3s ease;
@@ -121,5 +123,22 @@ body{
 	justify-content: space-evenly;
 	.btn{
 		width: 100%;
+	}
+}
+
+.table_block{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	table{
+		width:80vw;
+		padding:15px 0;
+		tr{
+			padding: 8px;
+			td{
+				padding:4px;
+				text-align: center;
+			}
+		}
 	}
 }

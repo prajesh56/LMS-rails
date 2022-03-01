@@ -1,13 +1,14 @@
-<div class="container">
+
 <h2>Leave requests</h2>
+<div class="table_block">
 <table>
 		<tr>
-		<td>Employee Id</td>
-		<td>Date From</td>
-		<td>Date To</td>
-		<td>Description</td>
-		<td>Status</td>
-		<td>Approval by</td>
+		<th>Employee Id</th>
+		<th>Date From</th>
+		<th>Date To</th>
+		<th>Description</th>
+		<th>Status</th>
+		<th>Approval by</th>
 		</tr>
 		<% @leaverecords.each do |leaverecords| %>
 			<tr>
@@ -23,5 +24,5 @@
 			</tr>
 		<% end %>
 </table>
-<%= link_to "Back to home", dashboard_path%>
 </div>
+<%= link_to "Back to home", dashboard_path%>

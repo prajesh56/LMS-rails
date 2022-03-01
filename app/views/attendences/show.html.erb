@@ -1,11 +1,12 @@
 <h2>My attendence log</h2>
 <% if !@attendences.empty? %>
+<div class="table_block">
 <table>
 	<tr>
-		<td>Date</td>
-		<td>Check In</td>
-		<td>Check Out</td>
-		<td>Duration</td>
+		<th>Date</th>
+		<th>Check In</th>
+		<th>Check Out</th>
+		<th>Duration</th>
 	</tr>
   <% @attendences.each do |attendences| %>
   	<tr>
@@ -16,5 +17,6 @@
 		</tr>
   <% end %>
 </table>
+</div>
 <% end %>
 <%= link_to "Back to Dashboard", dashboard_path%>

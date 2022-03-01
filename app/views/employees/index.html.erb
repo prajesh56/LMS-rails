@@ -1,23 +1,23 @@
 
 <h2>Employees list</h2>
 <% if !@employees.empty? %>
-	<div>
+	<div class = "table_block">
 	<table>
 		<tr>
-		<td>Name</td>
-		<td>Address</td>
-		<td>Contact</td>
-        <td>Company Join Date</td>
-		<td>Role</td>
-		<td>Email</td>
-		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Contact</th>
+      <th>Company Join Date</th>
+			<th>Role</th>
+			<th>Email</th>
+		</tr>
 		<% @employees.each do |employees| %>
 			<tr>
-				<td><%= employees.name%></td>
-				<td><%= employees.address%></td>
+				<td><%= employees.name.capitalize %></td>
+				<td><%= employees.address.capitalize%></td>
 				<td><%= employees.contact%></td>
                 <td><%= employees.start_date%></td>
-				<td><%= employees.role%></td>
+				<td><%= employees.role.capitalize %></td>
 				<td><%= employees.email%></td>
 				<td><%= link_to "Delete", employees, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
 			</tr>
