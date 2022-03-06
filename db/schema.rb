@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_26_134534) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_06_083653) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attendences", force: :cascade do |t|
-    t.bigint "employee_id"
+    t.bigint "user_id"
     t.date "date", null: false
     t.time "check_in"
     t.time "check_out"
     t.time "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_attendences_on_employee_id"
+    t.index ["user_id"], name: "index_attendences_on_user_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_26_134534) do
   end
 
   create_table "leaverecords", force: :cascade do |t|
-    t.bigint "employee_id"
+    t.bigint "user_id"
     t.date "date_from", null: false
     t.date "date_to", null: false
     t.text "description", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_26_134534) do
     t.string "approval_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_leaverecords_on_employee_id"
+    t.index ["user_id"], name: "index_leaverecords_on_user_id"
   end
 
   create_table "leaves", force: :cascade do |t|
@@ -59,6 +59,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_26_134534) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["employee_id"], name: "index_leaves_on_employee_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "name", null: false
+    t.string "address", null: false
+    t.date "start_date"
+    t.string "contact", null: false
+    t.string "role", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

@@ -1,9 +1,10 @@
 
 <h2>Leave requests</h2>
 <div class="table_block">
+<% if !@leaverecords.empty? %>
 <table>
 		<tr>
-		<th>Employee Id</th>
+		<th>Employee Name</th>
 		<th>Date From</th>
 		<th>Date To</th>
 		<th>Description</th>
@@ -12,7 +13,7 @@
 		</tr>
 		<% @leaverecords.each do |leaverecords| %>
 			<tr>
-				<td><%= leaverecords.employee_id%></td>
+				<td><%= leaverecords.user.name%></td>
 				<td><%= leaverecords.date_from%></td>
 				<td><%= leaverecords.date_to%></td>
 				<td><%= leaverecords.description%></td>
@@ -24,5 +25,6 @@
 			</tr>
 		<% end %>
 </table>
+<% end %>
 </div>
-<%= link_to "Back to home", dashboard_path%>
+

@@ -1,5 +1,5 @@
 <%= form_with model: leaverecords do |form|%>
-  <%= form.text_field :employee_id, value: session[:employee_id], :hidden => true %>
+  <%= form.text_field :user_id, value: current_user.id, :hidden => true %>
 	<div>
     <%= form.label :date_from %>
     <%= form.date_field :date_from %>
@@ -16,7 +16,7 @@
   </div>
 	<!--Status-->
 	<div>
-		<%if session[:employee_role] == 'admin' %>
+		<%if current_user.role == 'admin' %>
 			<%= form.label :status %>
 			<%= form.select :status, [["Approval Pending", "Approval Pending"], ["Accepted", "Accepted"], ["Rejected", "Rejected"]] %>
 		<% else %>
@@ -26,8 +26,8 @@
 	</div>
 	
 	<!--approval by-->
-	<%if session[:employee_role] == 'admin'%>
-		<%= form.text_field :approval_by, value: session[:employee_name], :hidden => true %>
+	<%if current_user.role == 'admin'%>
+		<%= form.text_field :approval_by, value: current_user.name, :hidden => true %>
 	<% end %>
   
 	<div>

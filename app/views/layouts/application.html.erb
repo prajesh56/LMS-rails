@@ -16,10 +16,11 @@
 
   <body>
   <div class = "container">
-    <%= render "home/header"%>
-    <% if @user %>
-    <%= render "home/nav"%>
-    <%end%>
+    
+    <%= render "layouts/partials/header" %>
+    <%= render "layouts/partials/nav" %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
   </div>

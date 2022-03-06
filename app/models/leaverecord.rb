@@ -1,5 +1,5 @@
 class Leaverecord < ApplicationRecord
-  belongs_to :employee
+  belongs_to :user
   validates :date_from, presence:true
   validates :date_to, presence:true
   validate :date_from_valid

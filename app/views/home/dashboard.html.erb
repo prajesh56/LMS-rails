@@ -1,14 +1,10 @@
 
-
-<div>
-	<%= flash[:notice] %>
-</div>
 <div class="attendence">
 	<div>
 		<%= button_to "CHECK IN", attendences_path, method: :post, class:'btn' %>
 	</div>
 	<div>
-		<%= button_to "CHECK OUT", attendence_path(@user), method: :patch, class:'btn'%>
+		
 	</div>
 </div>
 

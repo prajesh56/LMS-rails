@@ -1,7 +1,8 @@
 class LeaverecordsController < ApplicationController
   def index
 		#@leaverecords = Leaverecord.where.not(employee_id: session[:employee_id])
-		@leaverecords = Leaverecord.all
+		@leaverecords = Leaverecord.all.order(created_at: :desc)
+	
 	end
 
 	def new
@@ -9,7 +10,7 @@ class LeaverecordsController < ApplicationController
 	end
 
 	def show
-		@leaverecords = Leaverecord.where(employee_id: params[:id])
+		@leaverecords = Leaverecord.where(user_id: params[:id]).order(created_at: :desc)
 	end
 
 	def edit
@@ -19,7 +20,7 @@ class LeaverecordsController < ApplicationController
 	def update
 		@leaverecords = Leaverecord.find(params[:id])
 	  if @leaverecords.update(edit_leaverecord_params)
-      redirect_to leaverecords_path
+      redirect_to leaverecords_path, notice: 'Leave request updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -46,7 +47,7 @@ class LeaverecordsController < ApplicationController
 	end
 
 	def new_leaverecord_params
-		params.require(:leaverecord).permit(:id, :date_from, :date_to, :description, :employee_id, :status)
+		params.require(:leaverecord).permit(:id, :date_from, :date_to, :description, :user_id, :status)
 	end
 	
 end

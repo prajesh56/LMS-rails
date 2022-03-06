@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+ 
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    
+  }
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -8,10 +14,10 @@ Rails.application.routes.draw do
   resources :'leaverecords'
   resources :'home'
 
-  get "/", to: "home#index"
+  #get "/", to: "home#index"
   post "sign_in", to: "home#create"
   get "dashboard", to:"home#dashboard"
-  delete "logout", to: "home#destroy"
-
+ 
+  get 'users', to:'home#users_list'
  
 end

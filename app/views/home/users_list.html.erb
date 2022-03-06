@@ -1,0 +1,26 @@
+<% if !@users.empty? %>
+	<div class = "table_block">
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Contact</th>
+      <th>Company Join Date</th>
+			<th>Role</th>
+			<th>Email</th>
+		</tr>
+		<% @users.each do |users| %>
+			<tr>
+				<td><%= users.name.capitalize %></td>
+				<td><%= users.address.capitalize%></td>
+				<td><%= users.contact%></td>
+                <td><%= users.start_date%></td>
+				<td><%= users.role.capitalize %></td>
+				<td><%= users.email%></td>
+				<td><%= button_to "Delete", user_registration_path(users), method: :delete %></td>
+			</tr>
+		<% end %>
+	</table>
+	</div>
+<% end %>
+

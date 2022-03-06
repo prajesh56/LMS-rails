@@ -1,0 +1,12 @@
+
+<header>
+  <div class ="left"> 
+  	<h2>Leave Management System</h2>
+  </div>
+	<div class = "right">
+		<% if user_signed_in? %>
+  		<%= link_to current_user.name, edit_user_registration_path  %>
+			 <%= button_to "Logout", destroy_user_session_path, method: :delete%>
+		<% end %>
+	</div>
+</header>
