@@ -3,48 +3,101 @@ $color1:#dee2e9;
 $color2:#100e0e;
 $color3:#49d32d;
 $color4:#D8924E;
-
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    -webkit-font-smotthing:antailiased;
-    scroll-behavior: smooth;
-		font-family: 'poppins', sans-serif;	
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	-webkit-font-smotthing:antailiased;
+	scroll-behavior: smooth;
+	font-family: 'poppins', sans-serif;	
 }
+.content{
+
+	width: 100%;
+	height: 80vh;
+	padding: 5vh;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+}
+.link{
+	color: $color2;
+	text-decoration: none;
+}
+
+header{
+	padding: 3vh 0 3vh 0;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-evenly;
+	.left{
+		width: fit-content;
+	
+	
+			
+		}
+	
+	.right{
+		width: 20vw;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly  ;
+
+	}
+ }
+ .click{
+	width:100%;
+	height:fit-content;
+	box-sizing: border-box;
+	padding: 6px;	
+	border-radius: 1em;
+	.primary{
+		background-color: $color1;
+		border: 2px solid $color2;
+		&:hover {
+			background-color: $color3;
+		}
+	}
+
+	.danger{
+		background-color: $color1;
+		border: 2px solid $color2;
+		&:hover {
+			background-color: red;
+		}
+	}
+}
+
+.edit_form{
+	
+	display: flex;
+	flex-direction: row;
+	flex: nowrap;
+}
+
+.attendence{
+	width:100%;
+	height: 40vh;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	.btn{
+		width: 100%;
+	}
+}
+/*
 body{
  
  width:100%;
  background: $color1;
 	.container{
 		padding: 10px 3vw;
-		header{
-			padding: 2vh 0 5vh 0;
-			display: flex;
-			align-items: center;
-			flex-direction: row;
-			justify-content: space-evenly;
-			.left{
-				width: fit-content;
-			}
-			.right{
-				width: 20vw;
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-evenly  ;
-
-			}
-	 	}
-		.content{
-			width: 100%;
-			height: 80vh;
-			padding: 5vh;
-			
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-		}
+		
+	
 	 	nav{
 			width: 100%;
 			height: fit-content;
@@ -70,20 +123,7 @@ body{
 	}
 }
 
-.btn{
-	width:100%;
-	height:fit-content;
-	box-sizing: border-box;
-	padding: 6px;
-	background-color: $color1;
-	border: 2px solid $color2;
-	border-radius: 1em;
 
-	&:hover{
-		background-color: $color3;
-	}
-
-}
 
 .nav-link{
 	text-decoration: none;
@@ -114,17 +154,7 @@ body{
 		border-radius: 0.6em;
 	}
 }
-.attendence{
-	width:100%;
-	height: 40vh;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-evenly;
-	.btn{
-		width: 100%;
-	}
-}
+
 
 .table_block{
 	display: flex;
@@ -141,4 +171,4 @@ body{
 			}
 		}
 	}
-}
+}*/

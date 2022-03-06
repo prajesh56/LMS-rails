@@ -2,14 +2,17 @@
 <h2>My Leave Requests</h2>
 
 <%if !@leaverecords.empty? %>
-<div class="table_block">
-	<table>
-		<tr>
-			<th>Date From</th>
-			<th>Date To</th>
-			<th>Description</th>
-			<th>Status</th>
-		</tr>
+<table class="table table-striped p-1">
+  <thead>
+    <tr>
+      <th scope="col">Date_from</th>
+      <th scope="col">Date_to</th>
+      <th scope="col">Description</th>
+			<th scope="col">Status</th>
+			<th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @leaverecords.each do |leaverecords|%>
 			<tr>
 				<td><%= leaverecords.date_from%></td>
@@ -21,7 +24,8 @@
     	  <% end %>
     	</tr>
     <% end %>
-	</table>
-	</div>
+  </tbody>
+</table>
+
 <% end %>
 

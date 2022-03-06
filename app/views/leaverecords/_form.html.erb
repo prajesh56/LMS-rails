@@ -1,21 +1,23 @@
+
 <%= form_with model: leaverecords do |form|%>
+  <div class ="d-flex flex-column align-content-center justify-content-center p-1">
   <%= form.text_field :user_id, value: current_user.id, :hidden => true %>
-	<div>
+	<div class="field p-2">
     <%= form.label :date_from %>
     <%= form.date_field :date_from %>
   </div>
 
-  <div>
+  <div class="field p-2">
     <%= form.label :date_to %>
     <%= form.date_field :date_to %>
   </div>
 
-  <div>
+  <div class="field p-2">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
 	<!--Status-->
-	<div>
+	<div class="field p-2">
 		<%if current_user.role == 'admin' %>
 			<%= form.label :status %>
 			<%= form.select :status, [["Approval Pending", "Approval Pending"], ["Accepted", "Accepted"], ["Rejected", "Rejected"]] %>
@@ -26,17 +28,19 @@
 	</div>
 	
 	<!--approval by-->
+
 	<%if current_user.role == 'admin'%>
+  <div class="field p-2">
 		<%= form.text_field :approval_by, value: current_user.name, :hidden => true %>
+    </div>
 	<% end %>
-  
-	<div>
+  </div>
+	<div class='btn btn-outline-primary btn-sm'>
     <%= form.submit %>
   </div>
+  
 <%end%>
-<div>
-	<%= flash[:notice] %>
-</div>
+
 <% if leaverecords.errors.any? %>
   <ul>
     <% leaverecords.errors.each do |error| %>

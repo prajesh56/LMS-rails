@@ -1,12 +1,16 @@
 
 <header>
   <div class ="left"> 
-  	<h2>Leave Management System</h2>
+	<%if user_signed_in? %>
+  	<h2><%= link_to 'Leave Management System', dashboard_path, class:'link'%></h2>
+	<%else%>
+		<h2><%= link_to 'Leave Management System', root_path, class:'link'%></h2>
+	<%end%>
   </div>
 	<div class = "right">
 		<% if user_signed_in? %>
-  		<%= link_to current_user.name, edit_user_registration_path  %>
-			 <%= button_to "Logout", destroy_user_session_path, method: :delete%>
+  		<%= link_to current_user.name, edit_user_registration_path, class:'link' %>
+			 <%= button_to "Logout", destroy_user_session_path, method: :delete, class:'btn btn-outline-danger'%>
 		<% end %>
 	</div>
 </header>

@@ -1,17 +1,21 @@
 
 <h2>Leave requests</h2>
-<div class="table_block">
+
 <% if !@leaverecords.empty? %>
-<table>
-		<tr>
-		<th>Employee Name</th>
-		<th>Date From</th>
-		<th>Date To</th>
-		<th>Description</th>
-		<th>Status</th>
-		<th>Approval by</th>
-		</tr>
-		<% @leaverecords.each do |leaverecords| %>
+<table class="table table-striped p-1">
+  <thead>
+    <tr>
+			<th scope="col">Employee_name</th>
+      <th scope="col">Date_from</th>
+      <th scope="col">Date_to</th>
+      <th scope="col">Description</th>
+			<th scope="col">Status</th>
+			<th scope="col">Approval_By</th>
+			<th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    	<% @leaverecords.each do |leaverecords| %>
 			<tr>
 				<td><%= leaverecords.user.name%></td>
 				<td><%= leaverecords.date_from%></td>
@@ -19,12 +23,16 @@
 				<td><%= leaverecords.description%></td>
 				<td><%= leaverecords.status %></td>
 				<td><%= leaverecords.approval_by%></td>
-				<% if leaverecords.status == 'Approval Pending'%>
-				<td><%= link_to "Edit", edit_leaverecord_path(leaverecords)%></td>
-				<% end %>
+				<td>
+					<% if leaverecords.status == 'Approval Pending'%>
+						<%= link_to "Edit", edit_leaverecord_path(leaverecords)%>
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
+  </tbody>
 </table>
+
 <% end %>
-</div>
+
 

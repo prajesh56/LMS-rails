@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 	end
 	
 	def users_list
-		@users = User.where.not(id: current_user.id)
+		@users = User.where.not(id: current_user.id).order(created_at: :desc)
 	end
 
 	def create
