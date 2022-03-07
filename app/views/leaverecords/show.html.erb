@@ -19,9 +19,11 @@
 				<td><%= leaverecords.date_to%></td>
 				<td><%= leaverecords.description%></td>
 				<td><%= leaverecords.status %></td>
-				<% if leaverecords.status == 'Approval Pending'%>
-					<td><%= link_to "Delete", leaverecords, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
-    	  <% end %>
+				<td>
+          <% if leaverecords.status == 'Approval Pending'%>
+					  <<%= link_to "Delete", leaverecords, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    	    <% end %>
+        </td>
     	</tr>
     <% end %>
   </tbody>
