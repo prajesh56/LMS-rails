@@ -8,14 +8,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
  
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  #def new
+  #  @user = User.new
+  #end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  #def create
+  #  @user = User.new(new_leaverecord_params)
+	#	if @user.save
+	#		redirect_to dashboard_path, notice: "New Employee created successfully" 
+	#	else
+	#		render :new, status: :unprocessable_entity
+	#	end
+  #end
 
   # GET /resource/edit
   # def edit
@@ -29,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
     def destroy
-      binding.pry
+      
       @user = User.find(params[:format])
     
       if @user.destroy
@@ -52,7 +57,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
-      :sign_up, keys: %i[name address contact role start_date]
+      :sign_up, keys: %i[name address contact role start_date avatar]
     )
   end
 

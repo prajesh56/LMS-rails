@@ -8,6 +8,11 @@
     <%= f.text_field :name, autofocus: true, autocomplete: "name", required: true, disabled: true %>
   </div>
 
+  <div class="field p-1">
+    <%= f.label :photo %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
    <div class="field p-2">
     <%= f.label :contact %>
     <%= f.text_field :contact, autocomplete: "contact", required: true, disabled: true %>

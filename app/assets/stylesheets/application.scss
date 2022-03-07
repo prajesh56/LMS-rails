@@ -42,10 +42,9 @@ header{
 	.right{
 		width: 20vw;
 		display: flex;
-		flex-direction: row;
 		align-items: center;
-		justify-content: space-evenly  ;
-
+    flex-direction: row;
+    justify-content: space-evenly;
 	}
  }
  .click{
