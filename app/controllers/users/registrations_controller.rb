@@ -13,14 +13,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #end
 
   # POST /resource
-  #def create
-  #  @user = User.new(new_leaverecord_params)
-	#	if @user.save
-	#		redirect_to dashboard_path, notice: "New Employee created successfully" 
-	#	else
-	#		render :new, status: :unprocessable_entity
-	#	end
-  #end
+  def create
+    #binding.pry
+    @user = User.new(user_params)
+    if @user.save
+      UsersMailer.with(user: @user).welcome_email.deliver_now
+      redirect_to new_user_session_path
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -52,7 +52,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
+  
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :avatar, :role, :start_date, :contact, :address, :password, :password_confirmation, :confirmed_at)
+  end
   protected
 
   def configure_permitted_parameters
