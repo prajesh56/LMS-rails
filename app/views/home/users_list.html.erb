@@ -19,7 +19,13 @@
 				
 				<td><%= users.name.capitalize %></td>
 				<td><%= users.address.capitalize%></td>
-        <td ><%=image_tag url_for(users.avatar), style:'width:90px;height:80px'%></td>
+        <td >
+          <%if users.avatar.attached?%>
+            <%=image_tag url_for(users.avatar), style:'width:90px;height:80px'%>
+          <% else %>
+            <%= "No photo available" %>
+          <% end %>
+        </td>
 				<td><%= users.contact%></td>
                 <td><%= users.start_date%></td>
 				<td><%= users.role.capitalize %></td>

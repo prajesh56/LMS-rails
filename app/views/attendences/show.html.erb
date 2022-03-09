@@ -14,9 +14,12 @@
      <% @attendences.each do |attendences| %>
   		<tr>
 				<td><%= attendences.date %></td>
-				<td><%= attendences.created_at %></td>
-  			<td><%= attendences.updated_at %></td>
-				<td><%= attendences.duration %></td>
+				<td><%= attendences.created_at.strftime("%I:%M%p") %></td>
+  			<td>
+        <% if attendences.duration %>
+          <%= attendences.updated_at.strftime("%I:%M%p") %></td>
+				<% end %>
+        <td><%= attendences.duration %></td>
 			</tr>
   	<% end %>
   </tbody>

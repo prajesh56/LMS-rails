@@ -4,7 +4,7 @@ class CreateAttendences < ActiveRecord::Migration[7.0]
       t.belongs_to :user
       t.date :date, null: false
    
-      t.time :duration
+      t.string :duration
       t.timestamps
     end
   end

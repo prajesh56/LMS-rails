@@ -17,22 +17,27 @@ class AttendencesController < ApplicationController
 	def update
 		#binding.pry
 		@attendences = Attendence.find_by(user_id: params[:id])
-		#binding.pry
-		if @attendences.update(duration: Time.now)
-			
-			redirect_to dashboard_path, notice: 'Check out successful'
+		if @attendences.duration
+			redirect_to dashboard_path, notice: 'Check out already performed'
+		else
+			if @attendences.update(duration: total_duration)
+				redirect_to dashboard_path, notice: 'Check out successful'
+			end
 		end
 	end
 	private
 	#def edit_leaverecord_params
 	#	params.require(:attendence).permit(:id)
 	#end
-	def duration_total(ci)
+	
+	def total_duration
+		started_at = @attendences.created_at
+		now_time = Time.now - started_at
+		duration_sec = (now_time/60.second).round
+		duration_min = (now_time/1.minute).round
+		duration_hr = (now_time/1.hour).round
+		total_duration = duration_hr.to_s+" hr "+duration_min.to_s+" min "+duration_sec.to_s+" second"
 		
-		t = Time.now
-
-	 t.strftime("%I:%M%p")-ci.strftime("%I:%M%p")
-
 	end
 	
 end
