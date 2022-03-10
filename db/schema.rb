@@ -51,18 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_031158) do
     t.index ["user_id"], name: "index_attendences_on_user_id"
   end
 
-  create_table "employees", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "address", null: false
-    t.date "start_date"
-    t.string "contact", null: false
-    t.string "role", null: false
-    t.string "email", null: false
-    t.string "password", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "leaverecords", force: :cascade do |t|
     t.bigint "user_id"
     t.date "date_from", null: false
@@ -73,18 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_031158) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_leaverecords_on_user_id"
-  end
-
-  create_table "leaves", force: :cascade do |t|
-    t.bigint "employee_id"
-    t.date "date_from", null: false
-    t.date "date_to", null: false
-    t.text "description", null: false
-    t.boolean "status"
-    t.string "approval_by"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_leaves_on_employee_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New Leave request</h1>
+    <p>
+      Employee name: <%= @leave.user.name %>.<br>
+      Employee email: <%= @leave.user.email %>.<br>
+      Employee contact: <%= @leave.user.contact %>.<br>
+      Description: <%= @leave.description %>.<br>
+    </p>
+    <p>
+      To settle this leave request, just follow this link: <%= @url %>.
+    </p>
+    
+  </body>
+</html>

@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-a = User.new(name: 'Prajesh Shakya',address: 'Dhobighat', start_date: '2015-01-01', contact: '9849871430', role: 'admin', email: 'admin@gmail.com', password: 'asdf1234')
+a = User.new(name: 'Prajesh Shakya',address: 'Dhobighat', start_date: '2020-07-04', contact: '9849871430', role: 'admin', email: 'pj.shakya10@gmail.com', password: 'asdf1234')
 a.save

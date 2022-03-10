@@ -3,8 +3,9 @@ class Leaverecord < ApplicationRecord
   validates :date_from, presence:true
   validates :date_to, presence:true
   validate :date_from_valid
-  validates :description, presence: true, length: { maximum: 50 }
+  validates :description, presence: true, length: { maximum: 255 }
   validate :status_valid, on: :create
+  
   def date_from_valid
     if date_from.present? && date_from < Date.today
       errors.add(:date_from,"should not be past date")
@@ -18,4 +19,5 @@ class Leaverecord < ApplicationRecord
       errors.add(:status,"is to be approval pending even for admin while applying for leave")
     end
   end
+
 end

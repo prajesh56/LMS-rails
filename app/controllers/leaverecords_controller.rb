@@ -1,9 +1,8 @@
 class LeaverecordsController < ApplicationController
 	#before_action :authenticate_user!
+	before_action :verify_access, only: [:edit, :update]
   def index
-		#@leaverecords = Leaverecord.where.not(employee_id: session[:employee_id])
 		@leaverecords = Leaverecord.all.order(created_at: :desc)
-	
 	end
 
 	def new
@@ -21,7 +20,6 @@ class LeaverecordsController < ApplicationController
 	end
 
 	def update
-		binding.pry
 		@leaverecords = Leaverecord.find(params[:id])
 	  if @leaverecords.update(edit_leaverecord_params)
       redirect_to leaverecords_path, notice: 'Leave request updated.'
@@ -32,8 +30,8 @@ class LeaverecordsController < ApplicationController
 
 	def create
 		@leaverecords = Leaverecord.new(new_leaverecord_params)
-		#binding.pry
 		if @leaverecords.save
+			UsersMailer.with(leave: @leaverecords).leaverequest_email.deliver_now
 			redirect_to dashboard_path, notice: "New Leave request created successfully" 
 		else
 			render :new, status: :unprocessable_entity
@@ -54,5 +52,12 @@ class LeaverecordsController < ApplicationController
 	def new_leaverecord_params
 		params.require(:leaverecord).permit(:id, :date_from, :date_to, :description, :user_id, :status, :approval_by)
 	end
+	
+	def verify_access
+		if current_user.role != 'admin'
+			redirect_to dashboard_path, alert: "Unauthorized access"
+		end
+	end
+
 	
 end

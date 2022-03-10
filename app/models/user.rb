@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :leaverecords, dependent: :delete_all
   has_many :attendences, dependent: :delete_all
   has_one_attached :avatar, dependent: :delete_all
+ 
 end
