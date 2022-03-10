@@ -1,37 +1,42 @@
 
 <%= form_with model: leaverecords do |form|%>
   <div class ="d-flex flex-column align-content-center justify-content-center p-1">
-  <%= form.text_field :user_id, value: current_user.id, :hidden => true %>
-	<div class="field p-2">
-    <%= form.label :date_from %>
-    <%= form.date_field :date_from %>
-  </div>
-
-  <div class="field p-2">
-    <%= form.label :date_to %>
-    <%= form.date_field :date_to %>
-  </div>
-
-  <div class="field p-2">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-	<!--Status-->
-	<div class="field p-2">
-			<%= form.hidden_field :status, value: 'Approval Pending' %>
-	</div>
-	
-	<!--approval by-->
-
-	<%if current_user.role == 'admin'%>
-  <div class="field p-2">
-		<%= form.text_field :approval_by, value: current_user.name, :hidden => true %>
+    <%= form.text_field :user_id, value: current_user.id, :hidden => true %>
+	  <div class="field p-2">
+      <%= form.label :date_from %>
+      <%= form.date_field :date_from %>
     </div>
-	<% end %>
-  </div>
-	<div class='btn btn-outline-primary btn-sm'>
-    <%= form.submit %>
-  </div>
+
+    <div class="field p-2">
+      <%= form.label :date_to %>
+      <%= form.date_field :date_to %>
+    </div>
+
+    <div class="field p-2">
+      <%= form.label :description %>
+      <%= form.text_field :description %>
+    </div>
+	  <!--Status-->
+	  
+	  		<%= form.hidden_field :status, value: 'Approval Pending' %>
+	  
+  
+	  <!--approval by-->
+
+  
+    <div class="field p-2">
+	  	<%= form.label :Request_admin %>
+	  	<%= form.select(:approval_by, options_for_select(@user_options)) %>
+      
+      
+
+    </div>
+	
+  
+	</div>
+  
+  <%= form.submit %>
+  
   
 <%end%>
 

@@ -9,6 +9,7 @@
       <th scope="col">Date_to</th>
       <th scope="col">Description</th>
 			<th scope="col">Status</th>
+      <th scope="col">Requested admin</th>
 			<th scope="col">Action</th>
     </tr>
   </thead>
@@ -19,9 +20,10 @@
 				<td><%= leaverecords.date_to%></td>
 				<td><%= leaverecords.description%></td>
 				<td><%= leaverecords.status %></td>
+        <td><%= leaverecords.approval_by %></td>
 				<td>
           <% if leaverecords.status == 'Approval Pending'%>
-					  <<%= link_to "Delete", leaverecords, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+					  <%= link_to "Delete", leaverecords, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     	    <% end %>
         </td>
     	</tr>

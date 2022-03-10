@@ -8,6 +8,8 @@ class LeaverecordsController < ApplicationController
 
 	def new
 		@leaverecords = Leaverecord.new
+		#@admins = User.select(:name).where(role: 'admin')
+		@user_options = User.select(:name).where(role: 'admin').where.not(email: current_user.email).map{ |u| [ u.name ] }
 	end
 
 	def show
@@ -19,6 +21,7 @@ class LeaverecordsController < ApplicationController
 	end
 
 	def update
+		binding.pry
 		@leaverecords = Leaverecord.find(params[:id])
 	  if @leaverecords.update(edit_leaverecord_params)
       redirect_to leaverecords_path, notice: 'Leave request updated.'
@@ -29,6 +32,7 @@ class LeaverecordsController < ApplicationController
 
 	def create
 		@leaverecords = Leaverecord.new(new_leaverecord_params)
+		#binding.pry
 		if @leaverecords.save
 			redirect_to dashboard_path, notice: "New Leave request created successfully" 
 		else
@@ -48,7 +52,7 @@ class LeaverecordsController < ApplicationController
 	end
 
 	def new_leaverecord_params
-		params.require(:leaverecord).permit(:id, :date_from, :date_to, :description, :user_id, :status)
+		params.require(:leaverecord).permit(:id, :date_from, :date_to, :description, :user_id, :status, :approval_by)
 	end
 	
 end
