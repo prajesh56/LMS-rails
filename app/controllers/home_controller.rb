@@ -1,8 +1,14 @@
 class HomeController < ApplicationController
+	
+	before_action :authenticate_user!, :except => [:index]
 	def dashboard
 		
 	end
 	
+	def profile
+		#current_user_profile_page
+	end
+
 	def users_list
 		@users = User.where.not(id: current_user.id).order(created_at: :desc)
 	end

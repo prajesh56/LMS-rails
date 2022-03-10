@@ -1,4 +1,5 @@
 class LeaverecordsController < ApplicationController
+	#before_action :authenticate_user!
   def index
 		#@leaverecords = Leaverecord.where.not(employee_id: session[:employee_id])
 		@leaverecords = Leaverecord.all.order(created_at: :desc)

@@ -27,13 +27,12 @@
 									<%= link_to "New Leave request", new_leaverecord_path, class:"dropdown-item" %>
 									<%= link_to "Applied request", leaverecord_path(current_user), class:"dropdown-item"  %>
 									
-									
-        			    <li><hr class="dropdown-divider"></li>
-        			    <li>
-										<% if current_user.role == 'admin' %>
+									<% if current_user.role == 'admin' %>
+        			    	<li><hr class="dropdown-divider"></li>
+        			    	<li>
 											<%= link_to "Employee Leave requests", leaverecords_path, class:"dropdown-item" %>
-										<% end %>
-									</li>
+										</li>
+									<% end %>
         			  </ul>
         			</li>
 

@@ -1,0 +1,31 @@
+<h2>Profile</h2>
+<table class="table table-striped">
+  <tr>
+    <td>Name</td>
+    <td><%= current_user.name%></td>
+    <td rowspan = 4>
+      <%if current_user.avatar.attached? %>
+        <%=image_tag url_for(current_user.avatar), style:'width:400px;height:250px;border-radius:10%'%></td>
+      <%else%>
+        <%= "No photo available" %>
+      <% end %>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><%= current_user.address%></td>
+  </tr>
+  <tr>
+    <td>Contact</td>
+    <td><%= current_user.contact%></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%= current_user.email%></td>
+  </tr>
+  <tr>
+    <td>Company join date</td>
+    <td><%= current_user.start_date %></td>
+    <td><%= (Date.today - current_user.start_date).to_i.to_s+" days" %></td>
+  </tr>
+</table>
+

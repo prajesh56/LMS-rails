@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   get "dashboard", to:"home#dashboard"
  
   get 'users', to:'home#users_list'
- 
+  get 'profile', to:'home#profile'
 end
