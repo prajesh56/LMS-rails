@@ -18,13 +18,7 @@
   </div>
 	<!--Status-->
 	<div class="field p-2">
-		<%if current_user.role == 'admin' %>
-			<%= form.label :status %>
-			<%= form.select :status, [["Approval Pending", "Approval Pending"], ["Accepted", "Accepted"], ["Rejected", "Rejected"]] %>
-		<% else %>
-			<%= form.label :status %>
-			<%= form.select :status, [["Approval Pending", "Approval Pending"]] %>
-		<% end %>
+			<%= form.hidden_field :status, value: 'Approval Pending' %>
 	</div>
 	
 	<!--approval by-->
