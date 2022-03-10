@@ -17,7 +17,8 @@ class AttendencesController < ApplicationController
 	
 	def update
 		#binding.pry
-		@attendences = Attendence.find_by(user_id: params[:id])
+		@attendences = Attendence.find_by(user_id: params[:id], date: Date.today)
+		binding.pry
 		if @attendences.duration
 			redirect_to dashboard_path, notice: 'Check out already performed'
 		else
@@ -34,10 +35,10 @@ class AttendencesController < ApplicationController
 	def total_duration
 		started_at = @attendences.created_at
 		now_time = Time.now - started_at
-		duration_sec = (now_time/60.second).round
+		
 		duration_min = (now_time/1.minute).round
 		duration_hr = (now_time/1.hour).round
-		total_duration = duration_hr.to_s+" hr "+duration_min.to_s+" min "+duration_sec.to_s+" second"
+		total_duration = duration_hr.to_s+" hr "+duration_min.to_s+" min "
 		
 	end
 	
