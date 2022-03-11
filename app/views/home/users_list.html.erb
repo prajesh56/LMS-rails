@@ -17,8 +17,8 @@
     <% @users.each do |users| %>
 			<tr>
 				
-				<td><%= users.name.capitalize %></td>
-				<td><%= users.address.capitalize%></td>
+				<td><%= users.name %></td>
+				<td><%= users.address %></td>
         <td >
           <%if users.avatar.attached?%>
             <%=image_tag url_for(users.avatar), style:'width:90px;height:80px'%>
@@ -28,7 +28,7 @@
         </td>
 				<td><%= users.contact%></td>
                 <td><%= users.start_date%></td>
-				<td><%= users.role.capitalize %></td>
+				<td><%= users.role %></td>
 				<td><%= users.email%></td>
 				<td><%= button_to "Delete", user_registration_path(users), method: :delete, class:'btn btn-outline-danger btn-sm' %></td>
 			</tr>
