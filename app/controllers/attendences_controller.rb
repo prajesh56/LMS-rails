@@ -18,7 +18,7 @@ class AttendencesController < ApplicationController
 	def update
 		#binding.pry
 		@attendences = Attendence.find_by(user_id: params[:id], date: Date.today)
-		binding.pry
+		#binding.pry
 		if @attendences.duration
 			redirect_to dashboard_path, notice: 'Check out already performed'
 		else

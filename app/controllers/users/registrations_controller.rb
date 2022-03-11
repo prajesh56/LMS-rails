@@ -23,20 +23,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    @user = User.find(current_user.id)
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      redirect_to dashboard_path, notice: "User Updated."
+    else
+      redirect_to dashboard_path, alert: "No change(s) were made."
+    end
+  end
 
   # DELETE /resource
     def destroy
-      
       @user = User.find(params[:format])
-    
       if @user.destroy
         redirect_to users_path, notice: "User deleted."
       else
