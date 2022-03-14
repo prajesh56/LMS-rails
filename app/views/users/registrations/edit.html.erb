@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Account settings</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
@@ -24,22 +24,7 @@
       <%= f.text_field :address, autocomplete: "address", required: true%>
     </div>
     
-    <!--
-    <div class="field p-2">
-      <%= f.label :start_date %>
-      <%= f.date_field :start_date, disabled: true %>
-    </div>
-    -->
-
-    <!--
-    <div class="field p-2">
-	  	<%= f.radio_button :role, "admin", disabled: true %>
-	  	<%= f.label :role, "Admin" %>
-	  	<%= f.radio_button :role, "employee", disabled: true %>
-	  	<%= f.label :role, "Employee" %>
-    </div>
-    -->
-
+   
     <div class="field p-2">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", disabled: true%>
@@ -62,6 +47,7 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:'Re-enter your current or new password' %>
   </div>
+  
   <!--
   <div class="field p-2">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />

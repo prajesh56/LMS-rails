@@ -1,10 +1,12 @@
 class HomeController < ApplicationController
 	
 	before_action :authenticate_user!, :except => [:index]
-	def dashboard
-		
+	def index
+		if user_signed_in?
+			redirect_to dashboard_path
+		end
 	end
-	
+
 	def profile
 		#current_user_profile_page
 	end

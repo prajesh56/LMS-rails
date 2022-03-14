@@ -9,7 +9,7 @@ class UsersMailer < ApplicationMailer
 
   def leaverequest_email
     @leave = params[:leave]
-    @url = "http://127.0.0.1:3000/leaverecords/#{@leave.id}/edit"
+    @url = "http://127.0.0.1:3000/leaverecords"
     @admin = User.select(:email).find_by(name: @leave.approval_by)
     #binding.pry
     if @admin

@@ -11,7 +11,7 @@
       <th scope="col">Description</th>
 			<th scope="col">Status</th>
 			<th scope="col">Requested Admin</th>
-			<th scope="col">Action</th>
+			
     </tr>
   </thead>
   <tbody>
@@ -21,13 +21,11 @@
 				<td><%= leaverecords.date_from%></td>
 				<td><%= leaverecords.date_to%></td>
 				<td><%= leaverecords.description%></td>
-				<td><%= leaverecords.status %></td>
-				<td><%= leaverecords.approval_by%></td>
 				<td>
-					<% if leaverecords.status == 'Approval Pending' && leaverecords.approval_by == current_user.name%>
-						<%= link_to "Edit", edit_leaverecord_path(leaverecords)%>
-					<% end %>
-				</td>
+					<%= render 'edit_form', leaverecords: leaverecords%>
+					</td>
+				<td><%= leaverecords.approval_by%></td>
+			
 			</tr>
 		<% end %>
   </tbody>
