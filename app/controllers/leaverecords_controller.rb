@@ -7,8 +7,8 @@ class LeaverecordsController < ApplicationController
 
 	def new
 		@leaverecords = Leaverecord.new
-		#@admins = User.select(:name).where(role: 'admin')
-		@user_options = User.select(:name).where(role: 'admin').where.not(email: current_user.email).map{ |u| [ u.name ] }
+		@user_options = User.select(:name).where(role: 'admin').map{ |u| [ u.name ] }
+		#binding.pry
 	end
 
 	def show

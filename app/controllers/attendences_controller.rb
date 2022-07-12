@@ -35,9 +35,14 @@ class AttendencesController < ApplicationController
 	def total_duration
 		started_at = @attendences.created_at
 		now_time = Time.now - started_at
-		
+		duration_hr = 0
+		duration_min = 0
 		duration_min = (now_time/1.minute).round
-		duration_hr = (now_time/1.hour).round
+		if duration_min > 60
+			duration_hr = (now_time/1.hour).round
+			now_time = now_time - duration * 60
+			duration_min = (now_time/1.minute).round
+		end
 		total_duration = duration_hr.to_s+" hr "+duration_min.to_s+" min "
 		
 	end

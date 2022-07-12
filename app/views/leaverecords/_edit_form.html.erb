@@ -1,0 +1,9 @@
+
+  
+<%= form_with model: leaverecords do |form|%>
+  <%if leaverecords.status == 'Approval Pending' && leaverecords.approval_by == current_user.name%>
+		<%= form.select(:status, [["Approval Pending", "Approval Pending"], ["Accepted", "Accepted"], ["Rejected", "Rejected"]], {}, {:onChange=>'this.form.submit()'}) %>
+	<% else %>
+		<%= leaverecords.status %>
+	<% end %>
+<% end %>

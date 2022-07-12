@@ -23,12 +23,13 @@
 	  <!--approval by-->  
     <div class="field p-2">
 	  	<%= form.label :Supervisor %>
-	  	<%= form.select(:approval_by, options_for_select(@user_options)) %>
+      
+	  	<%= form.select :approval_by, @user_options %>
     </div>
 	
 	</div>
   
-  <%= form.submit %>
+  <%= form.submit class:'btn btn-outline-primary btn-lg p-2 mt-3' %>
   
   
 <%end%>
