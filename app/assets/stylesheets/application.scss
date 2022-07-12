@@ -10,6 +10,7 @@ $color4:#D8924E;
 	-webkit-font-smotthing:antailiased;
 	scroll-behavior: smooth;
 	font-family: 'poppins', sans-serif;	
+	
 }
 .content{
 
@@ -87,6 +88,15 @@ header{
 	.btn{
 		width: 100%;
 	}
+}
+body{
+	background-image: url(asset-path('bg.jpeg'));
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+nav{
+	color: red;
+
 }
 /*
 body{
